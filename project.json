@@ -1,0 +1,26 @@
+{
+  "overview": "Premium multi-page marketing website for Shree Anant Residency, a girls hostel in Kota, Rajasthan. Features cinematic hero slider, smooth animations, and a luxury hotel aesthetic targeting IIT-JEE and NEET students.",
+  "features": [
+    "Cinematic hero slider with Ken Burns zoom and text animations",
+    "Fixed sticky navbar with smooth page navigation",
+    "Animated facilities grid with hover effects",
+    "Testimonials slider with student reviews",
+    "Contact form with enquiry submission",
+    "About, Facilities, Services, Blog, and Contact pages",
+    "Parallax scroll effects and AOS animations",
+    "Preloader screen with fade-out animation",
+    "Mobile-first responsive premium design",
+    "Premium color palette: White, Beige, Soft Gold, Light Brown"
+  ],
+  "category": "marketing-business",
+  "tags": [
+    "hostel",
+    "girls-hostel",
+    "kota",
+    "education",
+    "premium",
+    "marketing-site",
+    "multi-page"
+  ],
+  "last_updated": "2026-04-13T22:46:32.216Z"
+}

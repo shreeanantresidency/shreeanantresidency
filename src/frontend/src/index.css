@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Lora", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: monospace;
+    --radius: 0.5rem;
+
+    --background: 0.96 0.015 75;
+    --foreground: 0.2 0.03 50;
+    --card: 0.98 0.01 75;
+    --card-foreground: 0.2 0.03 50;
+    --popover: 0.98 0.01 75;
+    --popover-foreground: 0.2 0.03 50;
+
+    --primary: 0.45 0.12 30;
+    --primary-foreground: 0.96 0.01 30;
+
+    --secondary: 0.92 0.02 75;
+    --secondary-foreground: 0.3 0.03 50;
+    --muted: 0.92 0.02 75;
+    --muted-foreground: 0.5 0.02 50;
+
+    --accent: 0.55 0.14 70;
+    --accent-foreground: 0.96 0.01 70;
+
+    --destructive: 0.5 0.2 25;
+    --destructive-foreground: 0.96 0.01 25;
+
+    --border: 0.88 0.025 75;
+    --input: 0.88 0.025 75;
+    --ring: 0.45 0.12 30;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0.01 75;
+    --sidebar-foreground: 0.2 0.03 50;
+    --sidebar-primary: 0.45 0.12 30;
+    --sidebar-primary-foreground: 0.96 0.01 30;
+    --sidebar-accent: 0.92 0.02 75;
+    --sidebar-accent-foreground: 0.3 0.03 50;
+    --sidebar-border: 0.88 0.025 75;
+    --sidebar-ring: 0.45 0.12 30;
+  }
+
+  .dark {
+    --background: 0.14 0.015 50;
+    --foreground: 0.92 0.01 60;
+    --card: 0.18 0.018 50;
+    --card-foreground: 0.92 0.01 60;
+    --popover: 0.18 0.018 50;
+    --popover-foreground: 0.92 0.01 60;
+
+    --primary: 0.72 0.17 70;
+    --primary-foreground: 0.14 0.015 70;
+
+    --secondary: 0.22 0.02 50;
+    --secondary-foreground: 0.82 0.01 60;
+    --muted: 0.22 0.02 50;
+    --muted-foreground: 0.52 0.012 55;
+
+    --accent: 0.65 0.15 70;
+    --accent-foreground: 0.14 0.015 70;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.92 0.01 25;
+
+    --border: 0.28 0.02 50;
+    --input: 0.28 0.02 50;
+    --ring: 0.72 0.17 70;
+
+    --chart-1: 0.49 0.24 264;
+    --chart-2: 0.7 0.17 162;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.18 0.018 50;
+    --sidebar-foreground: 0.92 0.01 60;
+    --sidebar-primary: 0.72 0.17 70;
+    --sidebar-primary-foreground: 0.14 0.015 70;
+    --sidebar-accent: 0.22 0.02 50;
+    --sidebar-accent-foreground: 0.82 0.01 60;
+    --sidebar-border: 0.28 0.02 50;
+    --sidebar-ring: 0.72 0.17 70;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/assets/fonts/Lora.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 16px oklch(0.55 0.14 70 / 0.5), 0 0 32px
+      oklch(0.55 0.14 70 / 0.25);
+  }
+
+  .gold-glow:hover {
+    box-shadow: 0 0 24px oklch(0.55 0.14 70 / 0.7), 0 0 48px
+      oklch(0.55 0.14 70 / 0.35);
+  }
+
+  .nav-link-underline {
+    position: relative;
+  }
+
+  .nav-link-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: oklch(0.55 0.14 70);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link-underline:hover::after,
+  .nav-link-underline.active::after {
+    width: 100%;
+  }
+
+  .img-zoom {
+    overflow: hidden;
+  }
+
+  .img-zoom img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .img-zoom:hover img {
+    transform: scale(1.06);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 28s linear infinite;
+  }
+
+  @keyframes marqueeScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .ken-burns {
+    animation: zoom-in-slow 8s ease-out forwards;
+  }
+
+  @keyframes zoom-in-slow {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.12);
+    }
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, oklch(0.55 0.14 70), oklch(0.65 0.18 70));
+    border-radius: 2px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeOutPreloader {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  .preloader-exit {
+    animation: fadeOutPreloader 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
