@@ -2,7 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import AOS from "aos";
 import { useEffect, useRef, useState } from "react";
 import "aos/dist/aos.css";
-import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
+import {
+  Clock,
+  ExternalLink,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 export const Route = createFileRoute("/contact")({
@@ -620,6 +627,40 @@ export default function ContactPage() {
                 Rajasthan 324005
               </p>
             </div>
+            <a
+              href="https://share.google/sQ4irKyACr4u7wEDu"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-ocid="contact-maps-link"
+              style={{
+                marginTop: 14,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "11px 22px",
+                background:
+                  "linear-gradient(135deg, oklch(0.55 0.14 70), oklch(0.48 0.16 65))",
+                color: "white",
+                borderRadius: 8,
+                textDecoration: "none",
+                fontSize: "0.88rem",
+                fontWeight: 700,
+                letterSpacing: "0.03em",
+                transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
+                boxShadow: "0 4px 16px oklch(0.55 0.14 70 / 0.28)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.transform =
+                  "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.transform =
+                  "translateY(0)";
+              }}
+            >
+              <ExternalLink size={15} />
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </section>
@@ -765,7 +806,7 @@ export default function ContactPage() {
 
             {/* WhatsApp */}
             <motion.a
-              href="https://wa.me/917665432929"
+              href="https://wa.me/916367139029"
               target="_blank"
               rel="noopener noreferrer"
               data-ocid="contact-whatsapp"
@@ -813,6 +854,55 @@ export default function ContactPage() {
                 </div>
                 <div style={{ fontSize: "0.83rem", color: FOREGROUND_MUTED }}>
                   Chat Directly with Us
+                </div>
+              </div>
+            </motion.a>
+
+            {/* Email */}
+            <motion.a
+              href="mailto:shreeanantresidency@gmail.com"
+              data-ocid="contact-email"
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 12,
+                padding: "32px 20px",
+                background: "oklch(0.99 0.008 75)",
+                border: "1.5px solid oklch(0.55 0.14 70 / 0.28)",
+                borderRadius: 18,
+                textDecoration: "none",
+                color: FOREGROUND_DARK,
+                boxShadow: "0 4px 20px oklch(0.55 0.14 70 / 0.07)",
+              }}
+            >
+              <div
+                style={{
+                  width: 54,
+                  height: 54,
+                  borderRadius: "50%",
+                  background: "oklch(0.55 0.14 70 / 0.1)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Mail size={24} style={{ color: GOLD }} />
+              </div>
+              <div>
+                <div
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "1.05rem",
+                    marginBottom: 5,
+                  }}
+                >
+                  Email Us
+                </div>
+                <div style={{ fontSize: "0.83rem", color: FOREGROUND_MUTED }}>
+                  shreeanantresidency@gmail.com
                 </div>
               </div>
             </motion.a>

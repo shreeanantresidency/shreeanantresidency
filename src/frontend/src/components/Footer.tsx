@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import {
+  ExternalLink,
   Facebook,
   Instagram,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
-  Twitter,
 } from "lucide-react";
 
 export default function Footer() {
@@ -110,17 +111,30 @@ export default function Footer() {
             <div style={{ display: "flex", gap: 10 }}>
               {(
                 [
-                  ["Facebook", Facebook],
-                  ["Instagram", Instagram],
-                  ["Twitter", Twitter],
+                  [
+                    "Facebook",
+                    Facebook,
+                    "https://www.facebook.com/shreeanantresidency",
+                  ],
+                  [
+                    "Instagram",
+                    Instagram,
+                    "https://www.instagram.com/sheeanant_residency/",
+                  ],
+                  ["WhatsApp", MessageCircle, "https://wa.me/916367139029"],
+                  ["Email", Mail, "mailto:shreeanantresidency@gmail.com"],
                 ] as const
-              ).map(([name, Icon]) => (
+              ).map(([name, Icon, href]) => (
                 <a
                   key={name}
-                  href={`https://${name.toLowerCase()}.com`}
+                  href={href}
                   aria-label={name}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={
+                    href.startsWith("mailto")
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
                   style={{
                     width: 34,
                     height: 34,
@@ -226,16 +240,37 @@ export default function Footer() {
                     marginTop: 2,
                   }}
                 />
-                <span
-                  style={{
-                    fontSize: "0.85rem",
-                    color: "oklch(0.65 0.015 60)",
-                    lineHeight: 1.6,
-                  }}
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 4 }}
                 >
-                  434, Electronic Complex, Rajeev Gandhi Nagar, Kota, Rajasthan
-                  324005
-                </span>
+                  <span
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "oklch(0.65 0.015 60)",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    434, Electronic Complex, Rajeev Gandhi Nagar, Kota,
+                    Rajasthan 324005
+                  </span>
+                  <a
+                    href="https://share.google/sQ4irKyACr4u7wEDu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 4,
+                      fontSize: "0.78rem",
+                      color: "oklch(0.55 0.14 70)",
+                      textDecoration: "none",
+                      fontWeight: 600,
+                    }}
+                  >
+                    <ExternalLink size={11} />
+                    View on Google Maps
+                  </a>
+                </div>
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <Phone
@@ -272,11 +307,16 @@ export default function Footer() {
                   size={15}
                   style={{ color: "oklch(0.55 0.14 70)", flexShrink: 0 }}
                 />
-                <span
-                  style={{ fontSize: "0.85rem", color: "oklch(0.65 0.015 60)" }}
+                <a
+                  href="mailto:shreeanantresidency@gmail.com"
+                  style={{
+                    fontSize: "0.85rem",
+                    color: "oklch(0.65 0.015 60)",
+                    textDecoration: "none",
+                  }}
                 >
-                  shreeanant.residency@gmail.com
-                </span>
+                  shreeanantresidency@gmail.com
+                </a>
               </div>
             </div>
             <div

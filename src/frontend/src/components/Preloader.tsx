@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 
 export default function Preloader() {
-  const [visible, setVisible] = useState(true);
+  const [exiting, setExiting] = useState(false);
+  const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 2400);
-    return () => clearTimeout(timer);
+    // Start fade-out after 1.8s
+    const t1 = setTimeout(() => setExiting(true), 1800);
+    // Remove from DOM after fade-out completes (1.8s + 0.7s animation)
+    const t2 = setTimeout(() => setGone(true), 2500);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
-  if (!visible) return null;
+  if (gone) return null;
 
   return (
     <div
-      className="preloader-exit"
       style={{
         position: "fixed",
         inset: 0,
@@ -22,6 +28,9 @@ export default function Preloader() {
         alignItems: "center",
         justifyContent: "center",
         background: "oklch(0.96 0.015 75)",
+        opacity: exiting ? 0 : 1,
+        pointerEvents: exiting ? "none" : "auto",
+        transition: "opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <div style={{ animation: "float 2s ease-in-out infinite" }}>

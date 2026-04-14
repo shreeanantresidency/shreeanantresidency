@@ -222,23 +222,14 @@
     }
   }
 
-  @keyframes fadeOutPreloader {
-    0% {
-      opacity: 1;
-      visibility: visible;
-    }
-    80% {
-      opacity: 1;
-    }
+  @keyframes float {
+    0%,
     100% {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+      transform: translateY(0px);
     }
-  }
-
-  .preloader-exit {
-    animation: fadeOutPreloader 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+    50% {
+      transform: translateY(-8px);
+    }
   }
 }
 
